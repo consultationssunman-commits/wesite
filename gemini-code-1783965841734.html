@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saarthi Seva Sanstha</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="authContainer" class="auth-wrapper">
+        <div class="auth-card">
+            <img src="01.jpg.jpeg" alt="Saarthi Seva Sanstha Logo" class="auth-logo">
+            <h2>Saarthi Seva Sanstha</h2>
+            
+            <div class="auth-tabs">
+                <button id="tabMember" class="tab-btn active" onclick="switchTab('member')">Member Portal</button>
+                <button id="tabAdmin" class="tab-btn" onclick="switchTab('admin')">Admin Portal</button>
+            </div>
+
+            <form id="authForm" onsubmit="handleAuth(event)">
+                <div class="input-group">
+                    <label>Full Name</label>
+                    <input type="text" id="authName" placeholder="Enter full name" required>
+                </div>
+                <div class="input-group">
+                    <label>Mobile Number</label>
+                    <input type="tel" id="authPhone" placeholder="Enter mobile number" required>
+                </div>
+                <div class="input-group hidden" id="adminCodeGroup">
+                    <label>Account Code</label>
+                    <input type="password" id="authCode" placeholder="Enter 6-digit admin code">
+                </div>
+
+                <button type="submit" class="btn-submit" id="submitBtn">Login / Access Portal</button>
+            </form>
+            <p id="authError" class="error-msg"></p>
+        </div>
+    </div>
+
+    <div id="dashboardContainer" class="dashboard-wrapper hidden">
+        <header class="header">
+            <div class="logo-area">
+                <img src="01.jpg.jpeg" alt="Saarthi Seva Sanstha Logo" class="logo-img">
+                <div>
+                    <h1>SAARTHI SEVA SANSTHA</h1>
+                    <p class="subtitle">Cow Welfare Organization</p>
+                </div>
+            </div>
+            <button class="btn-logout" onclick="logout()">Logout ⏻</button>
+        </header>
+
+        <main class="main-container">
+            <div id="adminBadge" class="admin-badge hidden">⚠️ ADMIN ACCOUNT CONTROL ACTIVE</div>
+
+            <div class="profile-card">
+                <div class="user-info">
+                    <div class="avatar">👤</div>
+                    <h2 id="portalName">Rahul Sharma</h2>
+                    <p class="member-id">ID: <span id="portalId">#440921</span></p>
+                </div>
+
+                <div class="dashboard-grid">
+                    <div class="section-box">
+                        <h3>MONTH-TO-MONTH CHARGES</h3>
+                        <div class="data-row"><span>Advance Paid:</span> <strong id="pAdvance">₹1,200</strong></div>
+                        <div class="data-row"><span>Monthly Fee:</span> <strong>₹100/month</strong></div>
+                        <div class="data-row"><span>Months Active:</span> <strong id="pMonths">3 Months</strong></div>
+                        <div class="wallet-box">
+                            <span>WALLET BALANCE REMAINING:</span>
+                            <span class="balance" id="pWallet">₹900</span>
+                        </div>
+                    </div>
+
+                    <div class="section-box">
+                        <h3>MY DONATION SUMMARY</h3>
+                        <div class="data-row donation-row">
+                            <span>Total Donated:</span> 
+                            <strong class="donation-amt" id="pDonated">❤️ ₹5,000</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="btn-primary" onclick="alert('Exporting Spreadsheet...')">[ DOWNLOAD EXCEL REPORT ]</button>
+            </div>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
